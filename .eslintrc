@@ -1,0 +1,16 @@
+{
+  "parser": "babel-eslint",
+  "rules": {
+    "strict": 0,
+    "no-multi-spaces": false,
+    "quotes": false,
+    "curly": false,
+    "no-console": false,
+    "key-spacing": false,
+    "no-var": true,
+    "no-use-before-define": true
+  },
+  "env": {
+     "browser": true
+  }
+}

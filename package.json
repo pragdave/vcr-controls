@@ -1,0 +1,30 @@
+{
+    "name": "vcr",
+    "version": "0.0.0",
+    "description": "Basic vcr-style control widget",
+    "main": "vcr.js",
+    "style":   "./assets/css/*.css",
+    "scripts": {
+        "build": "browserify assets/js/vcr.js -o dist/vcr.js & parcelify assets/js/vcr.js -c dist/vcr.css",
+        "watch": "watchify assets/js/vcr.js -v -o dist/js/vcr.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Dave Thomas <dave@pragprog.org>",
+    "license": "BSD-2-Clause",
+    "browserify": {
+        "transform": [
+            "browserify-shim",
+            "babelify",
+            "browserify-css"
+        ]
+    },
+    "browserify-shim": {
+        "./node_modules/jquery/dist/jquery.js": "global:$"
+    },
+    "devDependencies": {
+        "babelify": "~5.0.4",
+        "browserify": "~9.0.3",
+        "browserify-shim": "~3.8.3",
+        "browserify-css": "~0.4.0"
+    }
+}
