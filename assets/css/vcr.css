@@ -1,52 +1,71 @@
-body {
-    background: #eee;
-}
-canvas {
-    width: 100%;
-    background: #aaa;
-}
-
-#box {
-    background: #aad;
-}
-
-#screen {
-    background: #dad;
-}
-
-.dynagram {
-    width: 350px;
-    background: #ddf;
-}
 
 .vcr-controls {
+    text-align: center;
+    position: relative;
+    height: 1.8em;
+    border-top: solid 1px #474;
+    border-right: groove 2px #cec;
+    background: #7f7f7f;
+
+    background-image: -webkit-gradient(
+                              linear,
+                              left top,
+                              left bottom,
+                              color-stop(0, #C0BEC4),
+                              color-stop(0.49, #CDD4CC),
+                              color-stop(1, #5B5A5C)
+                          );
+    background-image: -o-linear-gradient(bottom, #C0BEC4 0%, #CDD4CC 49%, #5B5A5C 100%);
+    background-image: -moz-linear-gradient(bottom, #C0BEC4 0%, #CDD4CC 49%, #5B5A5C 100%);
+    background-image: -webkit-linear-gradient(bottom, #C0BEC4 0%, #CDD4CC 49%, #5B5A5C 100%);
+    background-image: -ms-linear-gradient(bottom, #C0BEC4 0%, #CDD4CC 49%, #5B5A5C 100%);
+    background-image: linear-gradient(to bottom, #C0BEC4 0%, #CDD4CC 49%, #5B5A5C 100%);
+}
+
+.vcr-controls .progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: green;
+    background-image: -webkit-gradient(
+                              linear,
+                              left top,
+                              left bottom,
+                              color-stop(0, #B0C4B5),
+                              color-stop(0.49, #CCEDC7),
+                              color-stop(1, #6F7A70)
+                          );
+    background-image: -o-linear-gradient(bottom, #B0C4B5 0%, #CCEDC7 49%, #6F7A70 100%);
+    background-image: -moz-linear-gradient(bottom, #B0C4B5 0%, #CCEDC7 49%, #6F7A70 100%);
+    background-image: -webkit-linear-gradient(bottom, #B0C4B5 0%, #CCEDC7 49%, #6F7A70 100%);
+    background-image: -ms-linear-gradient(bottom, #B0C4B5 0%, #CCEDC7 49%, #6F7A70 100%);
+    background-image: linear-gradient(to bottom, #B0C4B5 0%, #CCEDC7 49%, #6F7A70 100%);
+/*    transition: 1s width;*/
+    border-right: groove 2px #cec;
+    border-left: groove 2px #cec;
 }
 
 .vcr-controls ul {
+    position: absolute;
+    top: 0;
+    left: 0;
     list-style: none;
-    margin: 0;
-    padding: 0;
+    margin: 0 !important;
+    padding: 0 !important;
     width: 100%;
+    vertical-align: middle;
 }
 
 .vcr-controls ul li {
     display: inline-block;
-    border-radius: 0.35em;
-    -webkit-border-radius: 0.35em;
     margin: 0;
-    margin-right: 0.5em;
     padding: 0 0.3em 0.2em 0.3em;
     text-align: center;
-    border:  0.125em #686868 outset;
-
-    background: #7f7f7f; /* Old browsers */
-    background: -moz-linear-gradient(top,  #7f7f7f 0%, #858585 40%, #a3a3a3 54%, #7d7d7d 72%, #6e6e6e 90%, #616161 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7f7f7f), color-stop(40%,#858585), color-stop(54%,#a3a3a3), color-stop(72%,#7d7d7d), color-stop(90%,#6e6e6e), color-stop(100%,#616161)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  #7f7f7f 0%,#858585 40%,#a3a3a3 54%,#7d7d7d 72%,#6e6e6e 90%,#616161 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  #7f7f7f 0%,#858585 40%,#a3a3a3 54%,#7d7d7d 72%,#6e6e6e 90%,#616161 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  #7f7f7f 0%,#858585 40%,#a3a3a3 54%,#7d7d7d 72%,#6e6e6e 90%,#616161 100%); /* IE10+ */
-    background: linear-gradient(to bottom,  #7f7f7f 0%,#858585 40%,#a3a3a3 54%,#7d7d7d 72%,#6e6e6e 90%,#616161 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7f7f7f', endColorstr='#616161',GradientType=0 ); /* IE6-9 */
+    height: 1.5em;
 }
 
 .vcr-controls ul li i {
@@ -82,15 +101,3 @@ canvas {
     font-weight: bold;
 }
 
-.vcr-controls progress {
-    width: 9em;
-    float: right;
-    margin: 0;
-    padding: 0;
-    box-sizing: content-box;
-    border-bottom: #676 solid 2px;
-}
-
-.vcr-controls progress::value {
-    transition: 1s width;
-}

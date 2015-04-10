@@ -1,4 +1,6 @@
-import View from  "./view.js";
+import View from  "./view.js6";
+import "../css/vcr.css";
+import "../css/playback_controls-embedded.css";
 
 export default class VCR {
     constructor(player, selector) {

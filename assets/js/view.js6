@@ -1,5 +1,5 @@
 const content = `
-        <progress min="0" max="100" value="0"></progress>
+        <div class="progress"></div>
         <ul>
           <li><i class="icon-to-start vcr-rewind"></i></li>
           <li><i class="icon-play vcr-play"></i><i class="icon-stop vcr-stop"></i></li>
@@ -25,9 +25,7 @@ export default class View {
     populate(controls, state) {
         controls.html(content);
 
-        this.progress = controls.find("progress");
-        this.progress.attr("min", 0);
-        this.progress.attr("max", state.duration);
+        this.progress = controls.find(".progress");
 
         this.setupCallbacks(controls);
 
@@ -49,11 +47,13 @@ export default class View {
             this.stopButton.hide();
         }
         this.setSpeed(state.speed);
-        this.setPlayhead(state.playhead);
     }
 
     setPlayhead(playhead) {
-        this.progress.val(playhead);
+        if (playhead === 0)
+            console.log("zero");
+
+        this.progress.css("width", `${playhead * 100}%`);
     }
 
     setSpeed(speed) {
@@ -72,12 +72,20 @@ export default class View {
     }
 
     setupCallbacks(controls) {
-        controls.on("click", ".vcr-rewind", (event) => { return this.rewind(event); });
+        controls.on("click", ".vcr-rewind",
+                    (event) => { return this.rewind(event); });
 
-        controls.on("click", ".vcr-stop",         (event) => { return this.stop(event);   });
-        controls.on("click", ".vcr-play",         (event) => { return this.play(event);   });
-        controls.on("click", ".vcr-slower",       (event) => { return this.slower(event);   });
-        controls.on("click", ".vcr-faster",       (event) => { return this.faster(event);   });
+        controls.on("click", ".vcr-stop",
+                    (event) => { return this.stop(event);   });
+
+        controls.on("click", ".vcr-play",
+                    (event) => { return this.play(event);   });
+
+        controls.on("click", ".vcr-slower",
+                    (event) => { return this.slower(event);   });
+
+        controls.on("click", ".vcr-faster",
+                    (event) => { return this.faster(event);   });
     }
 
     play(event) {
