@@ -8,8 +8,12 @@ export default class VCR {
         this.controls = $(selector);
         this.state    = player.state;
 
-        player.onStateChange((newState) => this.handleStateChange(newState));
-        player.onPlayheadChange((newPosition) => this.handlePlayheadChange(newPosition));
+        player.onStateChange((newState) =>
+                              this.handleStateChange(newState));
+
+        player.onPlayheadChange((newPosition) =>
+                                 this.handlePlayheadChange(newPosition));
+
         this.view  = new View(this.controls, this.state, this);
     }
 
@@ -36,6 +40,13 @@ export default class VCR {
         if (newSpeed <= this.player.state.maxSpeed)
             this.player.setSpeed(newSpeed);
     }
+
+    setPlayhead(pos) {
+        this.player.setPlayhead(pos);
+    }
+
+
+    // There events come from the player
 
     handleStateChange(state) {
         this.view.setState(state);

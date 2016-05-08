@@ -5,8 +5,8 @@ function MockPlayer() {
 
     this.state = {
         playing:  false,
-        duration: 100000,
-        playhead: 44000,
+        duration: 10000,
+        playhead: 0,
         minSpeed: 0.125,
         maxSpeed: 8,
         speed:    1
@@ -40,6 +40,10 @@ function MockPlayer() {
         };
     };
 
+    this.setPlayhead = function(pos) {
+        this.state.playhead = pos * this.state.duration;
+    };
+
     this.rewind = function() {
         this.stop();
         this.state.playhead = 0;
@@ -48,9 +52,10 @@ function MockPlayer() {
     };
 
     this.setSpeed = function(speed) {
+
         this.state.speed = speed;
         this.notifyStateChange();
-    }
+    };
 
     this.tick = function(time) {
 
@@ -72,7 +77,8 @@ function MockPlayer() {
             window.requestAnimationFrame(function(time) {
                 self.tick(time);
             });
-            this.trigger(this.playheadChangeCallbacks, this.state.playhead);
+            this.trigger(this.playheadChangeCallbacks,
+                         this.state.playhead / this.state.duration);
         }
         else {
             this.state.playing = false;
@@ -83,8 +89,8 @@ function MockPlayer() {
 
     this.redraw = function() {
         var ratio = this.state.playhead/this.state.duration;
-        var percent = "" + 100*(ratio*ratio) + "%";
-        this.box.css("width", percent).css("height", percent);
+        var percent = "" + 100*ratio + "%";
+        this.box.css("width", percent).css("height", percent).html(" "+this.state.playhead);
     };
 
     this.notifyStateChange = function() {

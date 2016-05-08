@@ -1,5 +1,11 @@
+_ = require("lodash");
+
+
 const content = `
-        <div class="progress"></div>
+        <div class="progress">
+            <input type="range" min=0 max=100 value=0>
+        </div>
+
         <ul>
           <li><i class="icon-to-start vcr-rewind"></i></li>
           <li><i class="icon-play vcr-play"></i><i class="icon-stop vcr-stop"></i></li>
@@ -25,7 +31,7 @@ export default class View {
     populate(controls, state) {
         controls.html(content);
 
-        this.progress = controls.find(".progress");
+        this.progress = controls.find(".progress input");
 
         this.setupCallbacks(controls);
 
@@ -38,6 +44,7 @@ export default class View {
 
     setState(state) {
         this.state = state;
+        console.dir(["view: setState", state]);
         if (state.playing) {
             this.playButton.hide();
             this.stopButton.show();
@@ -47,13 +54,15 @@ export default class View {
             this.stopButton.hide();
         }
         this.setSpeed(state.speed);
+        this.setPlayhead(state.playhead / state.duration);
     }
 
+    /* Accepts a value from 0 to 1 */
     setPlayhead(playhead) {
         if (playhead === 0)
             console.log("zero");
-
-        this.progress.css("width", `${playhead * 100}%`);
+        console.dir(["playhead", playhead]);
+        this.progress.val(playhead * 100);
     }
 
     setSpeed(speed) {
@@ -76,16 +85,19 @@ export default class View {
                     (event) => { return this.rewind(event); });
 
         controls.on("click", ".vcr-stop",
-                    (event) => { return this.stop(event);   });
+                    (event) => { return this.stop(event); });
 
         controls.on("click", ".vcr-play",
-                    (event) => { return this.play(event);   });
+                    (event) => { return this.play(event); });
 
         controls.on("click", ".vcr-slower",
-                    (event) => { return this.slower(event);   });
+                    (event) => { return this.slower(event); });
 
         controls.on("click", ".vcr-faster",
-                    (event) => { return this.faster(event);   });
+                    (event) => { return this.faster(event); });
+
+        this.progress.on("change input",
+                    (event) => { return this.movePlayerPlayhead(event) });
     }
 
     play(event) {
@@ -96,15 +108,22 @@ export default class View {
         this.controller.stop();
     }
 
+    setPlayhead(event) {
+        console.dir(this.state.progress/this.state.duration * 100);
+    }
+
     rewind(event) {
+        console.dir("rewind");
         this.controller.rewind();
     }
 
     slower(event) {
+        console.dir("slower");
         this.controller.slower();
     }
 
     faster(event) {
+        console.dir("faster");
         this.controller.faster();
     }
 };

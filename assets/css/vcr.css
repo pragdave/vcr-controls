@@ -1,103 +1,35 @@
 
 .vcr-controls {
-    text-align: center;
-    position: relative;
-    height: 1.8em;
-    border-top: solid 1px #474;
-    border-right: groove 2px #cec;
-    background: #7f7f7f;
-
-    background-image: -webkit-gradient(
-                              linear,
-                              left top,
-                              left bottom,
-                              color-stop(0, #C0BEC4),
-                              color-stop(0.49, #CDD4CC),
-                              color-stop(1, #5B5A5C)
-                          );
-    background-image: -o-linear-gradient(bottom, #C0BEC4 0%, #CDD4CC 49%, #5B5A5C 100%);
-    background-image: -moz-linear-gradient(bottom, #C0BEC4 0%, #CDD4CC 49%, #5B5A5C 100%);
-    background-image: -webkit-linear-gradient(bottom, #C0BEC4 0%, #CDD4CC 49%, #5B5A5C 100%);
-    background-image: -ms-linear-gradient(bottom, #C0BEC4 0%, #CDD4CC 49%, #5B5A5C 100%);
-    background-image: linear-gradient(to bottom, #C0BEC4 0%, #CDD4CC 49%, #5B5A5C 100%);
+    border: 1px solid #ccc;
 }
 
 .vcr-controls .progress {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background: green;
-    background-image: -webkit-gradient(
-                              linear,
-                              left top,
-                              left bottom,
-                              color-stop(0, #B0C4B5),
-                              color-stop(0.49, #CCEDC7),
-                              color-stop(1, #6F7A70)
-                          );
-    background-image: -o-linear-gradient(bottom, #B0C4B5 0%, #CCEDC7 49%, #6F7A70 100%);
-    background-image: -moz-linear-gradient(bottom, #B0C4B5 0%, #CCEDC7 49%, #6F7A70 100%);
-    background-image: -webkit-linear-gradient(bottom, #B0C4B5 0%, #CCEDC7 49%, #6F7A70 100%);
-    background-image: -ms-linear-gradient(bottom, #B0C4B5 0%, #CCEDC7 49%, #6F7A70 100%);
-    background-image: linear-gradient(to bottom, #B0C4B5 0%, #CCEDC7 49%, #6F7A70 100%);
-/*    transition: 1s width;*/
-    border-right: groove 2px #cec;
-    border-left: groove 2px #cec;
+    display: inline-block;
+    width: 40%;
 }
 
 .vcr-controls ul {
-    position: absolute;
-    top: 0;
-    left: 0;
+    display: inline-block;
     list-style: none;
-    margin: 0 !important;
-    padding: 0 !important;
-    width: 100%;
-    vertical-align: middle;
 }
 
 .vcr-controls ul li {
     display: inline-block;
-    margin: 0;
-    padding: 0 0.3em 0.2em 0.3em;
-    text-align: center;
-    height: 1.5em;
 }
 
 .vcr-controls ul li i {
-    color: #686868;
-    text-shadow:  0.5px 0.5px 0.5px #000, -0.5px -0.5px 0.5px #fff;
+
 }
 
 .vcr-controls ul li i:hover {
-    color: #224;
-    text-shadow:  -0.5px -0.5px 0.5px #000, 0.5px 0.5px 0.5px #fff;
 }
 
 .vcr-controls ul li.active {
-    background: #494949; /* Old browsers */
-    background: -moz-linear-gradient(top,  #494949 0%, #4c4c4c 21%, #8b8b8b 67%, #6a6a6a 80%, #5e5e5e 90%, #525252 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#494949), color-stop(21%,#4c4c4c), color-stop(67%,#8b8b8b), color-stop(80%,#6a6a6a), color-stop(90%,#5e5e5e), color-stop(100%,#525252)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  #494949 0%,#4c4c4c 21%,#8b8b8b 67%,#6a6a6a 80%,#5e5e5e 90%,#525252 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  #494949 0%,#4c4c4c 21%,#8b8b8b 67%,#6a6a6a 80%,#5e5e5e 90%,#525252 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  #494949 0%,#4c4c4c 21%,#8b8b8b 67%,#6a6a6a 80%,#5e5e5e 90%,#525252 100%); /* IE10+ */
-    background: linear-gradient(to bottom,  #494949 0%,#4c4c4c 21%,#8b8b8b 67%,#6a6a6a 80%,#5e5e5e 90%,#525252 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#494949', endColorstr='#525252',GradientType=0 ); /* IE6-9 */
-    border:  0.125em #686868 inset;
 }
 
 .vcr-controls ul li.active i {
-    color: #aae;
-    text-shadow:  -0.5px -0.5px 0.5px #000, 0.5px 0.5px 0.5px #fff;
 }
 
 .vcr-controls ul li .speed {
-    color: #345;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-    font-weight: bold;
 }
 

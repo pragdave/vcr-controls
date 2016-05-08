@@ -1,9 +1,21 @@
+var expose = require("expose-loader");
+
 module.exports = {
 
     module: {
         loaders: [
-            { test: /\.js6$/,  loader: 'babel-loader'},
-            { test: /\.css$/,  loader: "style-loader!css-loader" }
+            {
+                test: require.resolve("jquery"),
+                loader: "expose?$!expose?jQuery"
+            },
+            {
+                test: /\.js6$/,
+                loader: 'babel-loader'
+            },
+            {
+                test: /\.css$/,
+                loader: "style-loader!css-loader"
+            },
         ]
     },
 
